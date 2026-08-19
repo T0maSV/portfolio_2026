@@ -1,0 +1,627 @@
+/* Variables et style de base */
+:root {
+    --primary-color: #0a2463; /* Bleu foncé */
+    --secondary-color: #3e92cc; /* Bleu clair */
+    --background-color: #f6f8fa; /* Gris très clair */
+    --surface-color: #ffffff;
+    --text-color: #263042;
+    --muted-text-color: #5a6472;
+    --light-text-color: #fff;
+    --border-color: #e5e9ef;
+    --font-title: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --radius: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+}
+
+/* Modifiez cette règle existante */
+section {
+    padding: 60px 20px;
+    max-width: 1500px; /* On passe de 1000px à 1100px */
+    margin: 0 auto;
+}
+
+/* Header et Navigation */
+header {
+    background-color: var(--surface-color);
+    box-shadow: 0 2px 10px rgba(10, 36, 99, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    margin: 0 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Section Accueil (Hero) */
+.hero {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--light-text-color);
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #2a6f97; /* Un peu plus foncé */
+}
+
+/* Section Projets */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--surface-color);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(10, 36, 99, 0.08);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(10, 36, 99, 0.14);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+}
+
+.project-card h3 {
+    margin: 15px 0;
+}
+
+.project-card p {
+    padding: 0 15px;
+    font-size: 0.9rem;
+}
+
+.project-card a {
+    display: inline-block;
+    margin: 15px 0;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Section Compétences (ancienne section générique, conservée pour compatibilité) */
+#competences .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skills-list span {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Section Contact */
+#contact {
+    text-align: center;
+}
+
+.contact-button {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.contact-button:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Améliorations pour la carte projet détaillée */
+.project-details {
+    padding: 0 20px 15px 20px;
+    text-align: left;
+}
+
+.project-details h4 {
+    color: var(--secondary-color);
+    margin-top: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.project-details p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.skills-project {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skills-project span {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Modification des tuiles projet pour le clic */
+.project-tile {
+    background-color: var(--surface-color);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(10, 36, 99, 0.08);
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer; /* Indique que l'élément est cliquable */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(10, 36, 99, 0.14);
+}
+
+.project-tile img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-tile h3 {
+    margin: 15px;
+}
+
+
+/* Styles pour la Fenêtre Modale */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 15, 30, 0.7); /* Fond sombre semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    padding: 30px 40px;
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+/* Styles pour l'affichage de la modale */
+.modal-overlay.active {
+    opacity: 1;
+}
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+}
+
+#modal-body h4 {
+    color: var(--secondary-color);
+    margin-top: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+#modal-body .skills-project {
+     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+#modal-body .skills-project span {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Nouveaux styles pour la section "À Propos" */
+#a-propos .hero-content {
+    text-align: center;
+    padding: 80px 20px 60px 20px;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+#a-propos .hero-content h1 {
+    color: var(--light-text-color);
+}
+
+#a-propos .hero-content p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-details {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: var(--surface-color);
+}
+
+.about-text {
+    max-width: 800px;
+}
+
+/* NOUVEAUX STYLES POUR LES SECTIONS EXPÉRIENCE / FORMATION (VERTICALE ÉPURÉE) */
+#experience {
+    background-color: var(--surface-color);
+}
+
+#formation {
+    background-color: var(--background-color);
+}
+
+.vertical-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* La ligne verticale */
+.vertical-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px; /* Position de la ligne */
+    height: 100%;
+    width: 3px;
+    background: var(--border-color);
+}
+
+.timeline-block {
+    position: relative;
+    margin-bottom: 40px; /* Espace entre les expériences */
+}
+
+/* Le point sur la ligne */
+.timeline-dot {
+    position: absolute;
+    top: 5px;
+    left: 4px; /* Centré sur la ligne de 15px */
+    height: 25px;
+    width: 25px;
+    background: var(--secondary-color);
+    border: 4px solid var(--surface-color);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-content {
+    margin-left: 60px; /* Espace à droite de la ligne */
+    background: var(--surface-color); /* Carte toujours blanche, quel que soit le fond de la section */
+    padding: 25px;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(10, 36, 99, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+     box-shadow: 0 6px 18px rgba(10, 36, 99, 0.1);
+}
+
+.content-text {
+    flex: 3; /* Le texte prend plus de place */
+}
+.content-image {
+    flex: 2; /* L'image prend moins de place */
+}
+.content-image img {
+    width: 80%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 8px;
+}
+.timeline-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.4rem;
+}
+.timeline-company {
+    font-style: italic;
+    color: var(--muted-text-color);
+    margin-bottom: 12px;
+    display: block;
+}
+.timeline-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Responsive pour les mobiles */
+@media (max-width: 768px) {
+    .timeline-content {
+        flex-direction: column; /* Le texte et l'image s'empilent */
+        align-items: flex-start;
+    }
+    .content-image {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+/* Styles spécifiques pour la modale du CV */
+.modal-content.modal-cv {
+    width: 90%;
+    max-width: 900px; /* Un peu plus large pour le PDF */
+    height: 90vh; /* Très haute pour voir le document */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-cv h2 {
+    margin-top: 0;
+    flex-shrink: 0; /* Empêche le titre de rétrécir */
+}
+
+.modal-cv iframe {
+    flex-grow: 1; /* L'iframe prend toute la place restante */
+    border: 1px solid var(--border-color);
+}
+
+/* Assure que le lien CV a le style d'un lien cliquable */
+#contact a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+/* Section Bilan de compétences */
+.competences-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: var(--muted-text-color);
+}
+
+.competences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.competence-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--secondary-color);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: 0 4px 16px rgba(10, 36, 99, 0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.competence-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(10, 36, 99, 0.12);
+}
+
+.competence-card h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.3rem;
+}
+
+.competence-subtitle {
+    display: block;
+    font-style: italic;
+    color: var(--muted-text-color);
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+}
+
+.competence-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.competence-card li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Nouveaux styles pour le tableau de compétences */
+.competences-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.competences-table th, .competences-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.competences-table th {
+    background-color: var(--background-color);
+    font-family: var(--font-title);
+    color: var(--primary-color);
+}
+
+.competences-table td small {
+    font-style: italic;
+    color: var(--muted-text-color);
+}
+
+/* Style pour l'image en fin de projet */
+.project-image-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.project-image-container img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+
+/* Style pour le lien de projet dans la modale */
+.project-link {
+    display: inline-block;
+    margin-bottom: 25px; /* Espace avant la section "Contexte" */
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(10, 36, 99, 0.1);
+}

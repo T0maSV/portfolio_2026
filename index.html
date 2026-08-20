@@ -7,34 +7,57 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
 
     <header>
         <nav>
-            <a href="#a-propos" class="nav-link">À Propos</a>
-            <a href="#experience" class="nav-link">Expérience professionnelle</a>
-            <a href="#formation" class="nav-link">Formation</a>
-            <a href="#competences" class="nav-link">Compétences</a>
-            <a href="#projets" class="nav-link">Projets</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#a-propos" class="nav-brand"><span class="dot"></span>Thomas Vialon</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#a-propos" class="nav-link">À Propos</a>
+                <a href="#experience" class="nav-link">Expérience professionnelle</a>
+                <a href="#formation" class="nav-link">Formation</a>
+                <a href="#projets" class="nav-link">Projets</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activer le mode sombre" aria-pressed="false">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"></path></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"></path></svg>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main>
         <section id="a-propos">
             <div class="hero-content">
+                <div class="starfield" id="starfield"></div>
+                <span class="eyebrow">Réseaux · IoT · Télécoms</span>
                 <h1>Thomas VIALON</h1>
                 <p>
                     Étudiant en 3<sup>ème</sup> année de BUT Réseaux et Télécommunications (parcours IoT &amp; Mobilité) — Alternant en télécommunication chez EDF
                     <br>
                     Futur apprenti Intégrateur 5G chez Thales SIX GTS, en formation à l'ENSEEIHT (Toulouse)
                 </p>
+                <div class="scroll-cue" aria-hidden="true"></div>
             </div>
 
             <div class="about-details">
-                <div class="about-text">
+                <div class="about-text" data-reveal>
                     <h2>Qui suis-je ?</h2>
                     <p>
                         Je m'appelle Thomas VIALON, étudiant en 3ème et dernière année de BUT Réseaux et Télécommunications, parcours Internet des Objets et Mobilité (IOM), à l'IUT de Blois, actuellement en alternance chez EDF. Passionné par les nouvelles technologies, je m'intéresse particulièrement aux réseaux, aux télécommunications et aux projets liés à l'IoT.
@@ -54,12 +77,15 @@
 
 
 <section id="experience">
-    <h2>Expérience professionnelle</h2>
+    <h2 data-reveal><span class="section-eyebrow">Parcours</span>Expérience professionnelle</h2>
     <div class="vertical-timeline">
 
-    <div class="timeline-block">
+    <div class="timeline-block" data-reveal>
         <div class="timeline-dot"></div>
         <div class="timeline-content">
+            <div class="content-image">
+                <img src="images/thales_logo.png" alt="Logo Thales">
+            </div>
             <div class="content-text">
                 <span class="timeline-date">Septembre 2026 - Août 2029</span>
                 <h3>Apprenti Intégrateur 5G</h3>
@@ -74,15 +100,15 @@
                     </ul>
                 </p>
             </div>
-            <div class="content-image">
-                <img src="images/thales_logo.png" alt="Logo Thales">
-            </div>
         </div>
     </div>
 
-    <div class="timeline-block">
+    <div class="timeline-block" data-reveal>
         <div class="timeline-dot"></div>
         <div class="timeline-content">
+            <div class="content-image">
+                <img src="images/edf_logo.png" alt="Logo EDF">
+            </div>
             <div class="content-text">
                 <span class="timeline-date">Septembre 2024 - Août 2026</span>
                 <h3>Apprenti en Télécommunication</h3>
@@ -103,15 +129,15 @@
                     <strong>Bilan personnel :</strong> au fil des deux années, je suis devenu référent technique IoT local, gagnant en autonomie sur le terrain et en rigueur documentaire propre au contexte nucléaire, tout en développant un travail transverse avec les différentes équipes du site.
                 </p>
             </div>
-            <div class="content-image">
-                <img src="images/edf_logo.png" alt="Logo EDF">
-            </div>
         </div>
     </div>
 
-    <div class="timeline-block">
+    <div class="timeline-block" data-reveal>
         <div class="timeline-dot"></div>
         <div class="timeline-content">
+            <div class="content-image">
+                <img src="images/ras.png" alt="Logo R.A.S Intérim">
+            </div>
             <div class="content-text">
                 <span class="timeline-date">Juillet - Août 2024</span>
                 <h3>Missions d'intérim</h3>
@@ -124,9 +150,6 @@
                     </ul>
                 </p>
             </div>
-            <div class="content-image">
-                <img src="images/ras.png" alt="Logo R.A.S Intérim">
-            </div>
         </div>
     </div>
 
@@ -134,27 +157,30 @@
 </section>
 
 <section id="formation">
-    <h2>Formation</h2>
+    <h2 data-reveal><span class="section-eyebrow">Études</span>Formation</h2>
     <div class="vertical-timeline">
 
-        <div class="timeline-block">
+        <div class="timeline-block" data-reveal>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
+                <div class="content-image">
+                    <img src="images/enseeiht_logo.png" alt="Logo ENSEEIHT">
+                </div>
                 <div class="content-text">
                     <span class="timeline-date">Septembre 2026 - Août 2029</span>
                     <h3>Cursus Ingénieur — Informatique et Télécommunications</h3>
                     <span class="timeline-company">ENSEEIHT, Toulouse — Département Sciences du Numérique</span>
                     <p>Formation d'ingénieur en apprentissage, en alternance chez Thales SIX GTS.</p>
                 </div>
-                <div class="content-image">
-                    <img src="images/enseeiht_logo.png" alt="Logo ENSEEIHT">
-                </div>
             </div>
         </div>
 
-        <div class="timeline-block">
+        <div class="timeline-block" data-reveal>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
+                <div class="content-image">
+                    <img src="images/logo_iut.png" alt="Logo IUT de Blois">
+                </div>
                 <div class="content-text">
                     <span class="timeline-date">Septembre 2023 - Août 2026</span>
                     <h3>BUT Réseaux et Télécommunications</h3>
@@ -168,15 +194,15 @@
                         </ul>
                     </div>
                 </div>
-                <div class="content-image">
-                    <img src="images/logo_iut.png" alt="Logo IUT de Blois">
-                </div>
             </div>
         </div>
 
-        <div class="timeline-block">
+        <div class="timeline-block" data-reveal>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
+                <div class="content-image">
+                    <img src="images/insa.png" alt="Logo INSA CVL">
+                </div>
                 <div class="content-text">
                     <span class="timeline-date">Septembre 2022 - Juillet 2023</span>
                     <h3>Cycle Préparatoire Intégré (STPI)</h3>
@@ -192,15 +218,15 @@
                     </div>
 
                 </div>
-                <div class="content-image">
-                    <img src="images/insa.png" alt="Logo INSA CVL">
-                </div>
             </div>
         </div>
 
-        <div class="timeline-block">
+        <div class="timeline-block" data-reveal>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
+                <div class="content-image">
+                    <img src="images/zola.png" alt="Logo Lycée Emile Zola">
+                </div>
                 <div class="content-text">
                     <span class="timeline-date">Septembre 2019 - Juillet 2022</span>
                     <h3>Baccalauréat général - Mention bien</h3>
@@ -210,9 +236,6 @@
                     <strong>Option :</strong> Mathématiques expertes
                     </p>
                 </div>
-                <div class="content-image">
-                    <img src="images/zola.png" alt="Logo Lycée Emile Zola">
-                </div>
             </div>
         </div>
 
@@ -221,25 +244,18 @@
 
 
         <section id="projets">
-            <h2>Mes Projets</h2>
-            <div class="project-grid">
-
-                <!-- ======================================================= -->
-
-                <!-- ======================================================= -->
-
-
-
-<section id="projets">
-            <h2>Mes Projets</h2>
+            <h2 data-reveal><span class="section-eyebrow">Réalisations</span>Mes Projets</h2>
             <div class="project-grid">
 
                 <!-- ======================================================= -->
                 <!-- BRIQUE 1 : ALTERNANCE EDF - USINE IOT INDUSTRIEL        -->
                 <!-- ======================================================= -->
-                <div class="project-tile" role="button" tabindex="0">
-                    <img src="images/lorawan_projet.png" alt="Infrastructure IoT LoRaWAN industrielle EDF">
-                    <h3>Déploiement d'une Usine IoT LoRaWAN (Alternance EDF DIGIT)</h3>
+                <div class="project-tile" role="button" tabindex="0" data-reveal>
+                    <div class="tile-media">
+                        <img src="images/lorawan_projet.png" alt="Infrastructure IoT LoRaWAN industrielle EDF">
+                        <span class="tile-cta">Voir le projet →</span>
+                    </div>
+                    <h3>Déploiement d'une infrastructure LoRaWAN en milieu industriel (Alternance EDF DIGIT)</h3>
                     <div class="project-full-details" style="display: none;">
 
                         <h4>1. Contexte et Objectifs</h4>
@@ -309,8 +325,11 @@
                 <!-- ======================================================= -->
                 <!-- BRIQUE 2 : PROJET DE FIN D'ÉTUDES (SAÉ6.IOM.01)         -->
                 <!-- ======================================================= -->
-                <div class="project-tile" role="button" tabindex="0">
-                    <img src="images/parking_final.png" alt="Maquette du Simulateur de Parking Connecté">
+                <div class="project-tile" role="button" tabindex="0" data-reveal>
+                    <div class="tile-media">
+                        <img src="images/parking_final.png" alt="Maquette du Simulateur de Parking Connecté">
+                        <span class="tile-cta">Voir le projet →</span>
+                    </div>
                     <h3>Simulateur de Parking Connecté (SAÉ 3ème année)</h3>
                     <div class="project-full-details" style="display: none;">
 
@@ -390,7 +409,6 @@
 
                     </div>
                 </div>
-                </div>
             </div>
         </section>
 
@@ -398,10 +416,10 @@
 
 
 
-        <section id="contact">
+        <section id="contact" data-reveal>
             <h2>Contactez-moi</h2>
             <p>N'hésitez pas à me contacter pour échanger ou collaborer.</p>
-            <a href="mailto:thomas.vialon@et.univ-tours.fr" class="contact-button">thomas.vialon@etu.univ-tours.fr</a>
+            <a href="mailto:thomas.vialon@etu.univ-tours.fr" class="contact-button">thomas.vialon@etu.univ-tours.fr</a>
             <p>
                 <a href="https://www.linkedin.com/in/thomasvialon/" target="_blank">LinkedIn</a>
             </p>
